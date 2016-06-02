@@ -30,6 +30,16 @@ describe('#median()', function() {
 	});
 });
 
+describe('#quantile()', function () {
+	it('should return the proper median and quantiles', function() {
+		expect(stats([3, 4, 4, 5, 6, 8, 9]).quantile(0)).to.equal(3);
+		expect(stats([3, 4, 4, 5, 6, 8, 9]).quantile(0.25)).to.equal(4);
+		expect(stats([3, 4, 4, 5, 6, 8, 9]).quantile(0.50)).to.equal(5);
+		expect(stats([3, 4, 4, 5, 6, 8, 9]).quantile(0.75)).to.equal(8);
+		expect(stats([3, 4, 4, 5, 6, 8, 9]).quantile(1)).to.equal(9);
+	});
+});
+
 describe('#q1()', function() {
 	it('should return the first quartile of an odd length array', function() {
 		expect(stats([12, 19, 4, 1, 2, 5, 8]).q1()).to.equal(2);
